@@ -1,0 +1,197 @@
+= render "pcHeader"
+- breadcrumb :items_show
+= render "layouts/breadcrumbs"
+
+.item-main
+  .show-main
+    .content-leftqq
+    .content-right
+      .top-content
+        .itemBox
+          %h2.itemBox__name 
+            =@item.name
+          .itemBox__body
+            %ul.itemBox__sub
+              %li
+                - @item.images.each_with_index do |image, i|
+                  -if i=== 0
+                    = image_tag image.src.url, class: "topimg"
+            %ul.itemBox__sub
+              %li
+                - @item.images.each_with_index do |image, i|
+                  - if i > 0
+                    = image_tag image.src.url, class: "leftimg"
+          .itemBox__price
+            %span
+              ￥
+              = @item.price
+            .itemBox__price-detail
+              %span
+                (税込)
+              %span
+          -if @item.purchases.present?
+            .items-box_photo__sold
+              .items-box_photo__sold__inner
+                SOLD
+          -else
+            - if @item.seller.id != current_user.id
+              .itemBox__purchase-Btn
+                = link_to "購入画面に進む", buy_item_purchases_path(item_id: @item.id), method: :get, class: "btn"
+          .itemDetail
+            =@item.introduction
+          .table
+            %table
+              %tbody
+                %tr
+                  %th
+                    出品者
+                  %td
+                    = @item.seller.nickname
+                %tr
+                  %th
+                    カテゴリー
+                  %td
+                    = @item.category.parent.parent.name
+                    %br/
+                    = @item.category.parent.name
+                    %br/
+                    = @item.category.name
+                %tr
+                  %th
+                    ブランド
+                  %td
+                    =@item.brand
+                %tr
+                  %th
+                    商品の状態
+                  %td
+                    =@item.item_condition.name
+                %tr
+                  %th
+                    配送料の負担
+                  %td
+                    =@item.postage_payer.name
+                %tr
+                  %th
+                    発送元の地域
+                  %td
+                    =@item.prefecture_code.name
+                %tr
+                  %th
+                    発送日の目安
+                  %td
+                    =@item.preparation_day.name
+          .optionalArea
+            %ul
+              %li
+                =render partial: 'favorites/favorite',locals: {item: @item}
+            %ul.optional
+              %li.optionalBtn
+                = link_to "#" do
+                  %i.fa.fa-flag
+                  不適切な商品の通報
+              - if user_signed_in? && current_user.id == @item.seller_id
+                %li.optionalBtn
+                  = link_to '削除', item_path(@item), method: :delete, data: {confirm: "この商品に関する情報を削除しますか？"}
+                %li.optionalBtn
+                  = link_to '編集', edit_item_path(@item)
+        .commentBox
+          - if user_signed_in?
+            .commentContents
+            %ul
+              = form_with(model: [@item, @comment], local: true) do |f|
+                = f.text_area :text, placeholder: "コメント欄", rows: "5", class: "text"
+                .note
+                  %h1
+                    相手のことを考え丁寧なコメントを心がけましょう。
+                  %h2
+                    不快な言葉遣いなどは利用制限や退会処分となることがあります。
+                = f.submit"コメントする", class:"comment_btn"
+          - else
+            %h3
+              ＊コメントの投稿には新規登録/ログインが必要です
+          .comments
+            %h4 ＜コメント一覧＞
+            - if @comments
+              - @comments.each do |comment|
+                %p
+                  %strong
+                    =comment.user.nickname
+                    ：
+                  = comment.text
+
+      %ul.links
+        %li
+          = link_to "#" ,class: "link-text" do
+            %i.fa.fa-angle-left
+            %span
+            前の商品
+        %li
+          = link_to "#" ,class: "link-text" do
+            %span
+            後ろの商品
+            %i.fa.fa-angle-right
+      .relatedItems
+        = link_to "#" ,class: "more-text" do
+          ベビー・キッズをもっと見る
+        .productList
+          =link_to "#" do
+            %figure.productList--img
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
+            .productList--body
+              %h3.name product2
+              .details
+                %ul
+                  %li.detail-price 20000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    0
+                %p.detail-price (税込)
+
+.appBanner
+  .inner
+    %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
+    %p.inner__text 今すぐ無料ダウンロード！
+    .inner__icon
+      =link_to "#" do
+        =image_tag "app_store.png", class: "aBtn"
+      =link_to "#" do
+        =image_tag "google_play.png", class: "gBtn"
+
+.footer
+  %ul.contents
+    %li.content
+      %h2.content__head FURIMAについて
+      %ul
+        %li
+          =link_to  "会社概要（運営会社）"
+        %li
+          =link_to  "プライバシーポリシー"
+        %li
+          =link_to  "FURIMA利用規約"
+        %li
+          =link_to  "ポイントに関する特約"
+    %li.content
+      %h2.content__head FURIMAを見る
+      %ul
+        %li
+          =link_to  "カテゴリー一覧"
+        %li
+          =link_to  "ブランド一覧"
+    %li.content
+      %h2.content__head ヘルプ＆ガイド
+      %ul
+        %li
+          =link_to  "FURIMAガイド"
+        %li
+          =link_to  "FURIMAロゴ利用ガイドライン"
+        %li
+          =link_to  "お知らせ"
+  .footer__logo
+    =link_to root_path do
+      =image_tag "logo-white.png", width:"160",height:"46.34"
+  %p © FURIMA
+=link_to "#" do
+  .SellBtn
+    %span.SellBtn__text 出品する
+    =image_tag "icon_camera.png", class:"SellBtn__icon"

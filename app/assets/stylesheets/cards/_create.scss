@@ -1,0 +1,25 @@
+.create {
+  max-width: 1000px;
+  margin:50px auto;
+  &__frame {
+    text-align:center;
+    font-size: 30px;
+    &__message {
+      margin: 100px auto;
+      padding-left: 60px; 
+    }
+    &__btns {
+      display: flex;
+      justify-content: center;
+      a {
+        border-style: none;
+        background-color: #3ccace;
+        color: white;
+        font-size: 20px;
+        border-radius: 40px;
+        padding: 20px 80px 20px 80px;
+        margin: 0px 10px;
+      }
+    }
+  }
+}

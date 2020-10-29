@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    attributes:
+      item:
+        name:               商品名
+        introduction:       商品の説明
+        category:           カテゴリー
+        item_condition_id:  商品の状態
+        postage_payer_id:   配送料の負担
+        prefecture_code_id: 発送元の地域
+        preparation_day_id: 発送までの日数
+        price:              販売価格
+        images: 画像

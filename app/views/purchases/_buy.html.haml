@@ -1,0 +1,34 @@
+.buy
+  .main_contents
+    .main_details
+      = render "purchase_item_info.html.haml"
+    .purchase_registration
+      .purchase_registration__main
+        .payment
+          支払い金額   
+        .amount
+          = "#{@item.price}" + "円"
+      -# カードを登録済みの場合の表示
+      - if current_user.card.present?
+        .purchase_function
+          .card_info_title
+            クレジットカード情報
+            -# カード情報を表示
+          .card_info
+            .card_info__brand
+              = image_tag "cards/#{@card_src}", class: "card_info__brand__img", alt: @card_brand
+            .card_info__numbers
+              .number
+                = "**** **** **** " + @customer_card.last4
+              .expiration_date
+                .expiration_date__title
+                  有効期限
+                .expiration_date__info
+                  = @exp_month + " / " + @exp_year
+        .purchase_btn
+          = link_to "登録クレジットカードで購入する", pay_item_purchases_path(item_id: @item.id), method: :post, class: "btn"
+      - else 
+        .purchase_none_btn
+          -# Checkoutのフォームを開くための記述
+          = form_tag(action: :pay, method: :post) do
+            %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": "pk_test_a978463e41581cafd365ad1a",}

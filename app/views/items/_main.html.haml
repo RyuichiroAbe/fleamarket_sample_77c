@@ -1,0 +1,196 @@
+.main
+  %section.mainVisual
+    .content
+      %h2.content__subtitle
+        %br/
+        人生を変えるフリマアプリ
+      %p.content__text
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br/
+        フリマアプリです
+      .content__btn
+        =link_to "#", class:'aBtn' do
+          = image_tag "app_store.png"
+        =link_to "#", class:'gBtn' do
+          = image_tag "google_play.png"
+    .picture
+  %section.topIntroduction
+    %h2.subtitle
+      FURIMAが選ばれる3つの理由
+    %ul.lists
+      %li.list
+        .list__pict
+          %span.number 1
+          = image_tag "pict-reason-01.jpg"
+        %h3.list__text
+          %span 3分
+          ですぐに出品
+        %p.list__description
+          スマホで入力するだけで簡単に出品できる！
+      %li.list
+        .list__pict
+          %span.number 2
+          = image_tag "pict-reason-02.jpg"
+        %h3.list__text
+          %span シンプル
+          で使いやすい
+        %p.list__description
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.list.list--last
+        .list__pict
+          %span.number 3
+          = image_tag "pict-reason-03.jpg"
+        %h3.list__text
+          手数料
+          %span 業界最安
+        %p.list__description
+          最大3%でお得に出品&amp;購入！
+  %section.topMiddleDl
+    .topMiddleDl__inner
+      %h2.subtitle 会員数日本一位
+      %p.text
+        FURIMAは、フリマアプリで最も人気。
+        %br/
+        出品・購入回数も業界最多です！
+        %br/
+        ほしかったあの商品に出会えるかもしれません。
+      .btn
+        =link_to "#" do
+          =image_tag "app_store.png", class: "aBtn"
+        =link_to "#" do
+          =image_tag "google_play.png", class: "gBtn"
+  %section.topKeyFeatures
+    %h2.head
+      FURIMAの特徴
+    .items
+      %section.item
+        %figure.item__img
+          = image_tag "icon-01.png"
+        %h3.item__subtitle 簡単に売り買いできる
+        %p.item__detail
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %section.item
+        %figure.item__img
+          = image_tag "icon-03.png"
+        %h3.item__subtitle 売上金は即日振込みに対応
+        %p.item__detail
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      %section.item
+        %figure.item__img
+          = image_tag "icon-04.png"
+        %h3.item__subtitle 様々な支払いに対応
+        %p.item__detail
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  %section.pickupContainer
+    %h2.head ピックアップカテゴリー
+    .productBox
+      .productHead
+        =link_to "#" do
+          %h3.title 新規投稿商品
+      .productLists
+        - @items.each do |item|
+          - if user_signed_in?
+            .productList
+              = link_to "items/#{item.id}" do
+                %figure.productList--img
+                  = image_tag item.images[0].src.url
+                .productList--body
+                  %h3.name
+                    = item.name
+                  .details
+                    %ul
+                      %li
+                        = "#{item.price}" + "円"
+                      %li
+                        %i.fa.fa-star.likeIcon
+                          = Favorite.where(item_id: item.id).count
+                    %p（税込）
+          - else
+            .productList
+              = link_to "/users/sign_in" do
+                %figure.productList--img
+                  = image_tag item.images[0].src.url
+                .productList--body
+                  %h3.name
+                    = item.name
+                  .details
+                    %ul
+                      %li
+                        = "#{item.price}" + "円"
+                      %li
+                        %i.fa.fa-star.likeIcon
+                          = Favorite.where(item_id: item.id).count
+                    %p（税込）
+
+  %section.pickupContainer
+    %h2.head ピックアップブランド
+    .productBox
+      .productHead
+        =link_to "#" do
+          %h3.title アーカイブ
+      .productLists
+        .productList
+          =link_to "/products/9" do
+            %figure.productList--img
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"
+            .productList--body
+              %h3.name テスト
+              .details
+                %ul
+                  %li 10000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    1
+                %p (税込)
+        .productList
+          =link_to "/products/8" do
+            %figure.productList--img
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
+            .productList--body
+              %h3.name ee
+              .details
+                %ul
+                  %li 1000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    0
+                %p (税込)
+        .productList
+          =link_to "/products/3" do
+            %figure.productList--img
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+            .productList--body
+              %h3.name product3
+              .details
+                %ul
+                  %li 30000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    0
+                %p (税込)
+        .productList
+          =link_to "/products/2" do
+            %figure.productList--img
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
+            .productList--body
+              %h3.name product2
+              .details
+                %ul
+                  %li 20000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    0
+                %p (税込)
+        .productList
+          =link_to "/products/1" do
+            %figure.productList--img
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
+            .productList--body
+              %h3.name product1
+              .details
+                %ul
+                  %li 10000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    1
+                %p (税込)

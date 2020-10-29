@@ -1,0 +1,67 @@
+.mypage  
+  .l-side
+    %ul.mypage-nav-list
+      %li
+        = link_to 'マイページ', '＃', class: 'sidemenu'
+        = link_to 'トップページ', '/', class: 'sidemenu'
+        = link_to '出品する', '/items/new', class: 'sidemenu'
+        = link_to '出品商品一覧', '＃', class: 'sidemenu'
+        = link_to '売却済の商品一覧', '＃', class: 'sidemenu'
+        = link_to 'お問い合わせ', '＃', class: 'sidemenu'
+    %h3.mypage-nav-head
+      各種設定
+    %ul.mypage-nav-list
+      %li
+        = link_to '会員情報の編集', '＃', class: 'sidemenu'
+        = link_to 'お届先住所の編集', '＃', class: 'sidemenu'
+        = link_to 'お支払い情報の登録/確認/削除', card_path(current_user.id), class: 'sidemenu'
+        = link_to 'ログアウト', '＃', class: 'sidemenu'
+
+  .l_content
+    .mypage-user-icon
+      %figure
+        = image_tag "member_photo_noimage_thumb.png", width: "60", height: "60",class: 'myimage'
+      .bold
+        = current_user.nickname
+      .mypage-number
+        %h1
+          評価
+          %span.bold 0
+        %h1
+          出品数
+          %span.bold 0
+    %ul.mypage-tabs
+      %li.active
+        %h3
+          = link_to '最近出品された商品'
+    .productLists
+      - @items.each do |item|
+        .productList--body
+          %span.images
+            = image_tag item.images[0].src.url
+          %span.name
+            = item.name
+          %span.price
+            = item.price 
+            円（税込）
+            %i.fa.fa-star.likeIcon
+              = Favorite.where(item_id: item.id).count
+        %p
+    %ul.mypage-tabs
+      %li.active
+        %h4
+          = link_to 'お気に入り済みの商品'
+    .productLists
+      - if @favorites.present?
+        - @favorites.each do |favorite|
+          .productList--body
+            %span.images
+              = image_tag favorite.item.images[0].src.url, class: "favoriteimg"
+            .item-body
+              %span.name
+                = favorite.item.name
+              %span.price
+                = "￥#{favorite.item.price}"
+      - else
+        %h5
+          お気に入りが登録されていません。

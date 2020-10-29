@@ -1,0 +1,36 @@
+.purchase_item_info {
+  text-align: center;
+  &__title {
+    font-weight: bold;
+    font-size: 20px;
+  }
+  &__details {
+    border-radius: 30px;
+    border: 2px solid #3ccace;
+    padding: 20px 60px;
+    display: inline-flex;
+    margin: 20px;
+    .purchase_item__image {
+      .itemBox__sub {
+        img {
+          width: 200px;
+          height: auto;
+          margin: 20px;
+        }
+      }
+    }
+    .item_details {
+      margin: 20px;
+      font-size: 20px;
+      .purchase_item__name {
+        margin: 60px 20px 20px 20px;
+      }
+      .purchase_item__price {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 20px 50px 20px;
+      }
+    }
+  }
+}

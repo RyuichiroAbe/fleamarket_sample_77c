@@ -1,3 +1,397 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.ItemNew__Box {
+  width: 100vw;
+  background-color: rgb(245, 245, 245);
+
+  .ItemNew__Header {
+    width: 100vw;
+    height: 100px;
+    background-color: rgb(245, 245, 245);
+    position: relative;
+  }
+  .Logo-Box {
+      box-sizing: border-box;
+      height: 128px;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+  }
+
+    a {
+      display: block;
+      height: 46px;
+      width: 120px;
+    }
+
+    img {
+      padding-left: 0;
+      padding-top: 0;
+    }
+    .preview-image {
+      width: 120px;
+    }
+
+    .ItemNew-Maim {
+    width: 600px;
+    margin: 0px auto;
+    }
+  .ItemNew-Center {
+      width: 600px;
+      padding: 10px 30px 50px 30px;
+      background-color: white;
+
+    .ItemEntry {
+      padding-top: 30px;
+      &__require {
+        background-color: red;
+        color: white;
+      }
+      &__option {
+        background-color: gray;
+        color: white;
+      }
+    }
+
+    span {
+      background-color: red;
+      color: white;
+    }
+
+    .ItemEntry-price {
+      padding-top: 10px;
+    }
+
+    .p {
+      padding-top: 20px;
+      color: gray;
+    }
+  }
+  .ItemNew-Img {
+    width: 600px;
+    min-height: 10px;
+    .image-box {
+      padding-right: 10px;
+      height: 240px;
+    }
+  }
+  .ItemNew-Select {
+  width: 600px;
+  height: 50px;
+  background-color: rgb(245, 245, 245);
+  padding-top: 5px;
+    .sellBtn2 {
+      height: 24px;
+      width: 24px;
+      padding-left: 270px;
+      padding-top: 10px;
+      .fa-fa-camera {
+        color: black;
+      }
+    }
+  } 
+}
+.item-image__js-remove {
+  display: block;
+  text-align: center;
+  width: 120px;
+}
+.item-image__js-edit {
+
+  appearance: button;
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: -internal-light-dark(buttontext, rgb(170, 170, 170));
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  background-color: -internal-light-dark(rgb(239, 239, 239), rgb(74, 74, 74));
+  box-sizing: border-box;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  padding: 1px 6px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195));
+  border-image: initial
+
+}
+.item-image__js-edit {
+  width: 120px;
+}
+.js-file {
+  display: none;
+}
+#previews {
+  display: flex;
+}
+#file-fields {
+  display: none;
+}
+.ItemNew-name {
+  width: 600px;
+  height: 30px;
+}
+.ItemNew-introduction {
+  width: 600px;
+  height: 140px;
+}
+.ItemNew-category {
+  width: 600px;
+  height: 40px;
+}
+.ItemNew-Brand {
+  width: 600px;
+  height: 30px;
+}
+select{
+  width: 600px;
+  height: 40px;
+}
+.ItemNew-price {
+  width: 580px;
+  height: 43px;
+  text-align: right;
+  font-size: 20px;
+}
+.Submit-btn {
+  width: 300px;
+  height: 40px;
+  color: white;
+  background-color: #3ccace;
+  line-height: 20px;
+  margin: 50px 150px 0;
+}
+.Return-btn {
+  margin-top: 15px;
+  margin-left: 110px;
+  text-align: center;
+  color: black;
+}
+.items-box_photo__sold{
+  width: 0;
+  height: 0;
+  border-top: 80px solid #ea352d ;
+  border-right: 80px solid transparent;
+  border-bottom: 80px solid transparent;
+  border-left: 80px solid #ea352d ;
+  z-index:100;
+  position: relative;
+  top:-595px;
+  &__inner{
+    transform: rotate(-45deg);
+    font-size: 30px;
+    margin:-30px 0px 0px -55px;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+}
+
+// .search-container {
+//   display: flex;
+//   .search-left {
+//   padding-left: 40px;
+//   padding-right: 15px;
+//   }
+//   .detail_search_form {
+//     border: solid 1px #000000;
+//     height: 300px;
+//     background-color: white;
+//     .detail_search__title {
+//       padding-top: 10px;
+//       text-align: center;
+//     }
+//     .detail_search__group {
+//       padding-top: 20px;
+//       padding-bottom: 10px;
+//       .detail_search__group--label {
+//         padding-bottom: 10px;
+//         text-align: center;
+//       }
+//     }
+//   }
+//   #q_sorts {
+//     width: 200px;
+//   }
+
+//   #q_name_cont {
+//     text-align: center;
+//     margin-left: 13px;
+//   }
+//   #q_price_gteq {
+//     text-align: center;
+//     margin-left: 13px;
+//   }
+//   #q_price_lteq {
+//     text-align: center;
+//     margin-left: 13px;
+//   }
+//   .nami {
+//     text-align: center;
+//   }
+  
+  
+//   .productList--imges {
+//     margin: 0 0 16px;
+//   }
+  
+//   .productList-search {
+//     width: 33%;
+//     margin-left: 5px;
+//     height: 250px;
+//     background-color: white;
+//   }
+// }
+
+.search {
+  display: flex;
+  background-color: #f8f8f8;
+  .detail_search {
+    // background-color: white;
+    background-color: rgb(240, 240, 240);
+    border-radius: 5px;
+    margin: 30px;
+    width: 300px;
+    height: 320px;
+    text-align: center;
+    .detail_search_sort {
+      // background-color: rgb(240, 240, 240);
+      padding: 10px;
+      width: 250px;
+      border-radius: 5px;
+      margin: 20px;
+      select {
+        border-style: hidden;
+      }
+      #q_sorts {
+        margin: 0 10px;
+        max-width: 200px;
+        height: 25px;
+      }
+    }
+    .detail_search_form {
+      margin: 10px;
+      > input {
+        border-style: hidden;
+        // background-color: rgb(240, 240, 240);
+        padding: 10px;
+        width: 250px;
+        border-radius: 5px;
+      }
+      .detail_search__title {
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+      .detail_search__group {
+        input {
+          border-style: hidden;
+        }
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        // background-color: rgb(240, 240, 240);
+        padding: 10px;
+        width: 250px;
+        border-radius: 5px;
+        // &--label {}
+        // &--forms {}
+      }
+    }
+    .detail_search__btns {
+      margin-top: 10px;
+      > input {
+        border-style: none;
+        background-color: #3ccace;
+        color: white;
+        font-size: 18px;
+        border-radius: 40px;
+        padding: 5px 10px;
+      }
+    }
+  }
+  .searchResult {
+    .productLists {
+      max-width: 1350px;
+      flex-wrap : wrap;
+      margin: 30px;
+      display: flex;
+      a {
+        text-decoration: none;
+        position: relative;
+        cursor: pointer;
+        display: block;
+        &:hover {
+          filter: opacity(0.4);
+        }
+      }
+      .productList {
+        width: 220px;
+        display: inline-block;
+        a {
+          background-color: #fff;
+          display: inline-block;
+          .productList--img {
+            width: 220px;
+            height: 150px;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            z-index: auto;
+            object-fit: cover;
+            img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              width: 100%;
+              z-index: auto;
+              height: 150px;
+              object-fit: cover;
+            }
+          }
+          .productList--body {
+            max-width: 188px;
+            background-color: white;
+            color: #333;
+            padding: 16px;
+            .name {
+              line-height: 1.5;
+              font-size: 16px;
+              text-align: left;
+            }
+            .details {
+              font-size: 16px;
+              ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-weight: bold;
+                li > .fa {
+                  display: inline-block;
+                  font: normal normal normal 14px/1 FontAwesome;
+                  font-size: inherit;
+                  text-rendering: auto;
+                  -webkit-font-smoothing: antialiased;
+                  -moz-osx-font-smoothing: grayscale;
+                  .fa-star:before {
+                    content: "\f005";
+                  }
+                }
+              }
+              p {
+                font-size: 10px;
+                text-align: left;
+              }
+            }            
+          }
+        }
+      }
+    }
+  }
+}

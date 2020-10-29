@@ -1,0 +1,11 @@
+= render "pcHeader"
+.search
+  = render "detail_search_form.html"
+  = render "searchResult"
+= render "appBanner"
+= render "footer"
+- if user_signed_in?
+  =link_to "/items/new" do
+    .SellBtn
+      %span.SellBtn__text 出品する
+      =image_tag "icon_camera.png", class:"SellBtn__icon" 

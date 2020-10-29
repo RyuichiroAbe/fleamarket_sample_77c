@@ -1,0 +1,20 @@
+.purchase_item_info
+  .purchase_item_info__title
+    購入内容の確認
+  .purchase_item_info__details
+    .purchase_item__image
+      %ul.itemBox__sub
+        %li
+          - @item.images.each_with_index do |image, i|
+            -if i=== 0
+              = image_tag image.src.url, class: "topimg"
+      %ul.itemBox__sub
+        %li
+          - @item.images.each_with_index do |image, i|
+            - if i > 0
+              = image_tag image.src.url, class: "leftimg"
+    .item_details
+      .purchase_item__name
+        = @item.name
+      .purchase_item__price
+        = "#{@item.price}" + "円"

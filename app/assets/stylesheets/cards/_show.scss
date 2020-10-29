@@ -1,0 +1,66 @@
+.show {
+  &__frame {
+    width: 100%;
+    text-align: center;
+    &__title {
+      font-weight: bold;
+      font-size: 30px;
+    }
+    .credit_card__list {
+      font-size: 20px;
+      font-weight: bold;
+      &__title {
+        margin-bottom: 20px;
+      }
+      &__frame {
+        display: inline-flex;
+        .credit_card_info {
+          border-radius: 30px;
+          border: 2px solid #3ccace;
+          padding: 10px 40px 10px 40px;
+          display: inline-flex;
+          &__brand {
+            margin: auto;
+            img {
+              width: 100px;
+              margin: 20px 20px 20px 0px;
+            }
+          }
+          &__numbers {
+            .number {
+              margin: 20px;
+            }
+            .expiration_date {
+              margin: 20px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              &__info {
+                margin-left: 10px;
+              }
+            }
+          }
+        }
+        .destroy__function {
+          margin: auto;
+          margin-left: 30px;
+          &__link {
+            &__btn {
+              color: white;
+              border-radius: 40px;
+              border: 2px solid red;
+              background-color: red;
+              padding: 20px 40px 20px 40px;
+            }
+          }
+        }
+      }
+      .payment-details {
+        font-weight: normal;
+        font-size: 12px;
+        text-align: right;
+        margin: 40px;
+      }
+    }
+  }
+}

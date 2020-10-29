@@ -1,0 +1,115 @@
+.header_FURIMA{
+  background-color: #f8f8f8;
+  .header__logo {
+    margin-left: 650px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    .furima_logo {
+  width: 214px;
+  height: 62px;
+}
+  }
+}
+
+// img{
+//   padding-left: 610px;
+//   padding-top: 10px;
+// }
+
+.main {
+  padding-bottom: 20px;
+}
+
+._form{
+  width: 500px;
+  margin-left: 410px;
+  padding-left: 220px;
+  border: solid 1px;
+  background-color: #ffffff;
+  .field{
+    padding-top: 26px;
+    .form-group__input{
+      width: 300px;
+      height: 28px;
+    }
+  }
+  .actions{
+    padding-top: 16px;
+    padding-bottom: 16px;
+    .user__main__form__contents__submit__btn{
+      font-size: 16px;
+      width: 341px;
+      height: 48px;
+      margin: 0 auto;
+      background-color: #3CCACE;
+      color: #ffffff;
+      text-align: center;
+      line-height: 48px;
+      border: none;
+    }
+  }
+}
+
+.login_page_main{
+  height: 500px;
+  background-color: #f8f8f8;
+  padding-top: 50px;
+}
+
+
+
+.form-group__require{
+  font-size: 8px;
+  color: #ffffff;
+  background-color: #ea352d;
+  margin-left: 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  vertical-align: top;
+}
+
+
+.Completion_registration {
+  font-size: 40px;
+  margin-left: 600px;
+}
+
+.top_path {
+  margin-left: 680px;
+  font-size: 30px;
+}
+
+#user_birth_day_1i{
+  width: 100px;
+  height: 32px;
+}
+
+#user_birth_day_2i{
+  width: 100px;
+  height: 32px;
+}
+
+#user_birth_day_3i{
+  width: 100px;
+  height: 32px;
+}
+
+#sending_destination_prefecture_code_id{
+  width: 304px;
+  height: 32px;
+}
+
+.google{
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background-color: cornflowerblue;
+}
+
+.facebook{
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background-color: blueviolet;
+  margin-top: 30px;
+}

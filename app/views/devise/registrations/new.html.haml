@@ -1,0 +1,104 @@
+.head
+  %header.header_FURIMA
+    %h1.header__logo
+      =link_to root_path do
+        =image_tag "logo.png", class: "furima_logo"
+    
+.main
+  ._form
+    %h2 会員情報入力
+    %br
+    = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post, class: "facebook"
+    = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post, class: "google"
+    = form_for(@user, url: user_registration_path) do |f|
+      = render "devise/shared/error_messages", resource: @user
+      .field
+        = f.label :ニックネーム
+        %span.form-group__require 必須
+        %br/
+        = f.text_field :nickname, {placeholder: "例) メルカリ太郎",class:'form-group__input'}
+      .field
+        = f.label :苗字
+        %span.form-group__require 必須
+        %br/
+        = f.text_field :first_name,class:'form-group__input'
+      .field
+        = f.label :名前
+        %span.form-group__require 必須
+        %br/
+        = f.text_field :family_name,class:'form-group__input'
+      .field
+        = f.label :苗字（読み仮名）
+        %span.form-group__require 必須
+        %br/
+        = f.text_field :first_name_kana, placeholder: "全角ひらがなで入力", class:'form-group__input'
+      .field
+        = f.label :名前（読み仮名）
+        %span.form-group__require 必須
+        %br/
+        = f.text_field :family_name_kana, placeholder: "全角ひらがなで入力", class:'form-group__input'
+      .field
+        = f.label :生年月日
+        %span.form-group__require 必須
+        %br/
+        = raw sprintf(f.date_select(:birth_day, autofocus: true, prompt:"--",use_month_numbers: true, start_year:Time.now.year,end_year:(1900),date_separator:'%s'), '年 ', '月 ') + '日'
+      .field
+        = f.label :メールアドレス
+        %span.form-group__require 必須
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC/携帯でも可", class:'form-group__input'
+      - if @sns_id.present?
+        = hidden_field_tag :sns_auth, true
+      - else
+        .field
+          = f.label :パスワード
+          %span.form-group__require 必須
+          %br/
+          = f.password_field :password, autocomplete: "new-password", placeholder: "７文字以上の英数半角", class:'form-group__input'
+        .field
+          = f.label :パスワード（確認用）
+          %span.form-group__require 必須
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password",class:'form-group__input'
+      .field
+        = f.label :自己紹介
+        %br/
+        = f.text_field :introduction,class:'form-group__input'
+        .field
+          = recaptcha_tags
+      .actions
+        = f.submit "次へ進む",class:'user__main__form__contents__submit__btn'
+
+.footer
+  %ul.contents
+    %li.content
+      %h2.content__head FURIMAについて
+      %ul
+        %li
+          =link_to  "会社概要（運営会社）"
+        %li
+          =link_to  "プライバシーポリシー"
+        %li
+          =link_to  "FURIMA利用規約"
+        %li
+          =link_to  "ポイントに関する特約"
+    %li.content
+      %h2.content__head FURIMAを見る
+      %ul
+        %li
+          =link_to  "カテゴリー一覧"
+        %li
+          =link_to  "ブランド一覧"
+    %li.content
+      %h2.content__head ヘルプ＆ガイド
+      %ul
+        %li
+          =link_to  "FURIMAガイド"
+        %li
+          =link_to  "FURIMAロゴ利用ガイドライン"
+        %li
+          =link_to  "お知らせ"
+  .footer__logo
+    =link_to root_path do
+      =image_tag "logo-white.png", width:"160",height:"46.34"
+  %p © FURIMA

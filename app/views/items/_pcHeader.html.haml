@@ -1,0 +1,45 @@
+.pcHeader
+  .headerInner
+    .mainHeader
+      %h1.icon
+        =link_to root_path do
+          =image_tag "logo.png"
+      .searchBox
+        = form_with url: search_items_path, local: true, method: :get, class: "searchBox__form" do |form|
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "searchBox__form__input"
+          = button_tag type: "submit", class: "searchBox__form__btn" do
+            .searchBox__icon
+              = image_tag "icon-search 1.png", width:"19.72",height:"19.72"
+      .detailedSearch
+        = link_to '詳細検索', detail_search_items_path
+    .nav
+      %ul.listsLeft
+        %li.listsLeft__category
+          =link_to  "カテゴリー"
+          %ul.listsLeft__category__parents
+            %li
+              =link_to  "レディース"
+              %ul.listsLeft__category__children
+                %li
+                  =link_to  "トップス"
+                  %ul.listsLeft__category__grandchildren
+                    %li
+                      =link_to  "Tシャツ/カットソー(半袖/袖なし)"
+        %li.listsLeft__bland
+          = link_to "#" do
+            ブランド
+        -# %li.listsRight-logout
+        -#   = link_to '詳細検索', detail_search_items_path
+      %ul.listsRight
+        - if user_signed_in?
+          %li.listsRight-mypage
+            = link_to "#{current_user.nickname} ", user_path(current_user)
+          %li.listsRight-logout
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          %li.listsRight-login
+            = link_to "/users/sign_in" do
+              ログイン
+          %li.listsRight-reg
+            = link_to "/users/sign_up" do
+              新規会員登録

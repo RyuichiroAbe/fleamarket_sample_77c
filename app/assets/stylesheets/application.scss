@@ -1,0 +1,32 @@
+@import "reset";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.notifications {
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  .notice {
+    background-color: lightBlue;
+  }
+  .alert {
+    background-color: orange;
+  }
+}
+
+@import "modules/items";
+@import "modules/appBanner";
+@import "modules/footer";
+@import "modules/main";
+@import "modules/pcHeader";
+@import "modules/SellBtn";
+@import "mypage";
+@import "show";
+@import "login";
+@import "registration";
+@import "address";
+@import "items";
+@import "cards/cards";
+@import "purchases/buy";
+@import "purchases/pay";
+@import "purchases/purchase_item_info";

@@ -1,0 +1,121 @@
+.ItemNew__Box
+
+  .ItemNew__Header
+
+    .Logo-Box
+      = link_to root_path do
+        = image_tag 'logo.png', height: '36', width: '134' 
+
+  .ItemNew-Maim
+
+    .ItemNew-Center
+      = form_with(model: @item ,local: true) do |f|
+        - if f.object.errors.any?
+          = f.object.errors.full_messages[0]  #エラーメッセージの実装予定
+        .ItemEntry
+          %h.ItemEntry__text 商品画像
+          %span.ItemEntry__require 必須
+          %br
+          最大5枚までアップロードできます
+
+        .ItemNew-Img
+          #image-box
+            #previews
+              - if @item.persisted?
+                - @item.images.each_with_index do |image, i|
+                  .previews_box
+                    = image_tag image.src.url, data: { index: i }, width: "100", height: '100', class: 'preview-image'
+                    %button.item-image__js-remove{"data" => {index: i}} 削除
+                    .item-image__js-edit{"data" => {index: i}} 編集
+                .js-remove
+
+        .ItemNew-Select
+          .sellBtn2
+            = fa_icon 'camera'
+
+        #file-fields
+          = f.fields_for :images do |image|
+            .js-file_group{"data-index" => "#{image.index}"}
+              = image.file_field :src, class: 'js-file'
+              
+            - if @item.persisted?
+              = image.check_box :_destroy,include_hidden: false,  data:{ index: image.index },class: 'hidden-destroy'
+          - if @item.persisted?
+            .js-file_group{"data-index" => "#{@item.images.count}"}
+              = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+            
+
+        .ItemEntry
+          %h.ItemEntry__text 商品名
+          %span.ItemEntry__require 必須
+        = f.text_field :name, {placeholder: '入力してください', class:'ItemNew-name', required: "required"}
+
+        .ItemEntry
+          %h.ItemEntry__text 商品の説明
+          %span.ItemEntry__require 必須
+        = f.text_field :introduction, {placeholder: '商品の説明 (色、素材、重さ、定価など)', class:'ItemNew-introduction', required: "required"}
+
+        .p 商品の詳細
+
+        .ItemEntry
+          .sell-container__content
+            %h3.sell-sub-head 商品の詳細
+            .sell-container__content__details
+              .sell-title
+                %h3.sell-title__text
+                  カテゴリー
+                  %span.sell-title__require
+                    必須
+              .append__category
+                .category
+                  =f.collection_select :category_id, @category_parent_array, :id, :name, {selected:@child_array}, {class: 'sell-collection_select__input', id: 'category-select-parent'}
+                - if @category_id == 46 or @category_id == 74 or @category_id == 134 or @category_id == 142 or @category_id == 147 or @category_id == 150 or @category_id == 158
+                - else
+                  .category__child#children_wrapper
+                    =f.collection_select :category_id, @category_children_array, :id, :name, {},{selected:@child_array, class: 'sell-collection_select__input', id: 'select-children-box'}
+                  .category__grandchild#grandchildren_wrapper
+                    =f.collection_select :category_id, @category_grandchildren_array, :id, :name, {selected:@grandchild_array}, {class: 'sell-collection_select__input', id: 'select-grandchildren-box'}
+              .error-messages#error-category
+
+        .ItemEntry
+          %h.ItemEntry__text ブランド
+          %span.ItemEntry__option 任意
+        = f.text_field :brand, {placeholder: '入力してください', class:'ItemNew-Brand'}
+
+        .ItemEntry
+          %h.ItemEntry__text 商品の状態
+          %span.ItemEntry__require 必須
+        = f.collection_select :item_condition_id, ItemCondition.all, :id, :name,{prompt: "選択してください"},{class: 'input', required: "required"}
+        .error-messages#error-category
+
+        .p 発送について
+
+        .ItemEntry
+          %h.ItemEntry__text 配送料の負担
+          %span.ItemEntry__require 必須
+        = f.collection_select :postage_payer_id, PostagePayer.all, :id, :name,{prompt: "選択して下さい"},{ class: 'input', required: "required"}
+
+        .ItemEntry
+          %h.ItemEntry__text 発送元の地域
+          %span.ItemEntry__require 必須
+        = f.collection_select :prefecture_code_id, PrefectureCode.all, :id, :name,{prompt: "選択してください"},{class: 'input', required: "required"}
+        
+        .ItemEntry
+          %h.ItemEntry__text 発送までの日数
+          %span.ItemEntry__require 必須
+        = f.collection_select :preparation_day_id, PreparationDay.all, :id, :name,{prompt: "選択してください"},{class: 'input', required: "required"}
+
+        .p 価格(¥9,999,999)
+        .ItemEntry-price
+          %h.ItemEntry__text 販売価格
+          %span.ItemEntry__require 必須
+        ¥
+        = f.text_field :price, {placeholder: '0', class:'ItemNew-price', required: "required"}
+
+        .actions
+          = f.submit '編集する', class: 'Submit-btn'
+
+        .Return-btn
+          = link_to 'もどる', root_path, class: 'Return-btn'
+
+  .ItemNew__Hooter

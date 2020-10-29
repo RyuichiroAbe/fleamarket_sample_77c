@@ -1,0 +1,109 @@
+.card_add {
+  max-width: 500px;
+  margin:50px auto;
+  .title {
+    text-align:center;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+  .details {
+    font-size: 15px;
+    .number-details {
+      display: flex;
+      margin-bottom: 10px;
+      line-height: 15px;
+    }
+    .number {
+      margin-bottom: 5px;
+      .cardnumber {
+        border-style: hidden;
+        background-color: rgb(240, 240, 240);
+        padding: 10px;
+        width: 500px;
+        border-radius: 5px;
+      }
+    }
+    .image {
+      width: 40px;
+      display: flex;
+      margin-bottom: 20px;
+      img {
+        margin-left: 3px;
+      }
+    }
+
+    .expirationdate {
+      &__details {
+        display: flex;
+        margin-bottom: 10px;
+        line-height: 15px;
+      }
+      &__choice {
+        display: flex;
+        margin-bottom: 20px;
+        .card-default {
+          border-style: hidden;
+          background-color: rgb(240, 240, 240);
+          padding: 10px;
+          width: 200px;
+          border-radius: 5px;
+        }
+        .month {
+          display: flex;
+          &-details {
+            margin: auto 5px;
+          }
+        }
+        .year {
+          display: flex;
+          &-details {
+            margin: auto 5px;
+          }
+        }
+      }
+    }
+
+    .securitycode {
+      margin-bottom: 50px;
+      &__details {
+        display: flex;
+        margin-bottom: 10px;
+        line-height: 15px;
+      }
+      &__cardsecurity {
+        &__form {
+          border-style: hidden;
+          background-color: rgb(240, 240, 240);
+          padding: 10px;
+          width: 250px;
+          border-radius: 5px;
+        }
+      }
+      .card-question {
+        font-size: 12px;
+        margin: 5px 0px 0px 130px;
+      }
+    }
+    .add {
+      text-align: center;
+      &__btn {
+        border-style: none;
+        background-color: #3ccace;
+        color: white;
+        font-size: 20px;
+        border-radius: 40px;
+        padding: 10px 100px 10px 100px;
+        cursor: pointer;
+      }
+    }
+  }
+  .must_check {
+    font-size: 12px;
+    background-color: #3CCACE;
+    color: white;
+    padding: 0px 3px;
+    border-radius: 2px;
+    font-weight: bold;
+  }
+}

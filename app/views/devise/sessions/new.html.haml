@@ -1,0 +1,63 @@
+.head
+  %header.header_FURIMA
+    %h1.header__logo
+      =link_to root_path do
+        =image_tag "logo.png", class: "furima_logo"
+
+.login_page_main
+  ._form
+    %br
+    = link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post, class: "facebook"
+    = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class: "google"
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field
+        = f.label :メールアドレス
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email",class:'form-group__input'
+      .field
+        = f.label :パスワード
+        %br/
+        = f.password_field :password, autocomplete: "current-password",class:'form-group__input'
+      .actions
+        = f.submit "ログイン",class:'user__main__form__contents__submit__btn'
+      %br/
+    アカウントをお持ちでない方はこちら
+    .btn_sign_up
+      = link_to '新規会員登録', '/users/sign_up', class: 'sign_up'
+      %br/
+    .btn_forget_password
+      ＊パスワードを忘れた方は
+      = link_to 'こちら', '/users/password/new', class: 'forget_password'
+.footer
+  %ul.contents
+    %li.content
+      %h2.content__head FURIMAについて
+      %ul
+        %li
+          =link_to  "会社概要（運営会社）"
+        %li
+          =link_to  "プライバシーポリシー"
+        %li
+          =link_to  "FURIMA利用規約"
+        %li
+          =link_to  "ポイントに関する特約"
+    %li.content
+      %h2.content__head FURIMAを見る
+      %ul
+        %li
+          =link_to  "カテゴリー一覧"
+        %li
+          =link_to  "ブランド一覧"
+    %li.content
+      %h2.content__head ヘルプ＆ガイド
+      %ul
+        %li
+          =link_to  "FURIMAガイド"
+        %li
+          =link_to  "FURIMAロゴ利用ガイドライン"
+        %li
+          =link_to  "お知らせ"
+  .footer__logo
+    =link_to root_path do
+      =image_tag "logo-white.png", width:"160",height:"46.34"
+  %p © FURIMA 

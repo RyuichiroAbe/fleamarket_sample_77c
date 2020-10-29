@@ -1,0 +1,146 @@
+.mypage {
+  display: flex;
+  background-color: #f8f8f8;
+  padding-top: 40px;
+  .sidemenu {
+    background-color: #ffffff;
+    width: 100%;
+    display: inline-block;
+    text-align: left;
+    font-weight: 200;
+    color: #333;
+    border-bottom: 1px solid #f8f8f8;
+    padding: 16px;
+    text-decoration: none;
+    &:hover {
+      background-color: #3CCACE;
+    }
+  }
+  .mypage-nav-head {
+    font-weight: 800;
+    margin-top: 47px;
+  }
+}
+
+.l-side {
+  width: 280px;
+  height: 650px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.mypage-user-icon {
+  position: relative;
+  height: 155px;
+  padding: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  background-image: url(image-path("bubble.jpg"))
+  
+}
+
+.myimage {
+  width: 60px;
+  height: 60px;
+}
+
+.bold {
+  font-weight: 600;
+  color: black;
+  text-decoration: none;
+}
+
+
+
+.mypage-number {
+  margin: 8px 0 0;
+  color: black;
+  text-decoration: none;
+  margin-top: 0px;
+}
+
+span {
+  margin: 0 0 0 8px;
+  font-size: 16px;
+}
+
+.mypage-tabs {
+  background: #eee;
+  width: 100%;
+  padding-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.active {
+  background-color: #ffffff;
+  width: 100%;
+  display: inline-block;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  a {
+    position: relative;
+    display: block;
+    color: #333;
+    font-size: 16px;
+    line-height: 35px;
+    text-decoration: none;
+    padding-left: 15px;
+    font-weight: bold;
+  }
+
+}
+
+.l_content {
+  width: 900px;
+  height: 640px;
+  background-color: white;
+  margin-left: 50px;
+  overflow: scroll;
+}
+
+.productLists {
+  display: flex;
+  
+  .productList {
+    width: 33%;
+    margin-left: 5px;
+  
+    .productList--img {
+      width: 100%;
+      margin-left: 0px;
+      .product {
+        background-color: white;
+        width: 100%;
+        margin-left: 0px;
+      }
+    }
+    .productList--body {
+      background-color: white;
+      width: 100%;
+      color: #333;
+      margin-left: 0px;
+      .name {
+        text-decoration: none;
+        color: black;
+      }
+      .yen {
+        margin-top: 5px;
+        margin-bottom: 0px;
+        padding-left: 0px;
+        list-style: none;
+      }
+      .tax {
+      margin-top: 0px;
+      margin-bottom: 5px;
+      font-size: 10px;
+      }
+    }
+  }
+}
+.favoriteimg{
+  height: 302px;
+  width: 302px;
+}
